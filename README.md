@@ -58,7 +58,7 @@ This option will display usage in current folder, with *human readable format*. 
    dusage -r
 ```
 
-+ **-d | --directory** *+ PATH+*: if you use **dusage** with no args, it will display current folder usage. If you want to see **how much space is used in another folder/drive**, just add the option *-d* followed by dir to be checked
++ **-d | --directory** *+ PATH*: if you use **dusage** with no args, it will display current folder usage. If you want to see **how much space is used in another folder/drive**, just add the option *-d* followed by dir to be checked
 ```bash
    dusage -d /var
    Showing space usage in: /var
