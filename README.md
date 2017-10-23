@@ -3,7 +3,7 @@
 
 **DiskUsage** is a simple but powerful program to retrieve *information about used space* in your disk. It can list **files**, **folders** and more to give you the view you need of your disk.
 
-And it *doesn't need* any other third party program: it is using **basic Unix commands** with specific sintax (you can see what is doing by [clicking here](https://github.com/Javinator9889/DiskUsage/blob/master/dusage#L43)
+And it *does not need* any other third party program: it is using **basic Unix commands** with specific sintax (you can see what is doing by [clicking here](https://github.com/Javinator9889/DiskUsage/blob/master/dusage#L43)
 
 
 ## How to install
