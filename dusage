@@ -95,129 +95,125 @@ is_rev=false
 is_file=false
 is_dir=false
 case "$1" in
-	-d | --directory)	shift
-						cdirectory=$1
-						shift
-						case "$1" in
-							-r | --reverse)	shift
-											is_rev=true
-											case "$1" in
-												-f | --file)	shift
-																is_file=true
-																directory
-																;;
-												"")				directory
-																;;
-												*)				echo "${RED}NON-ADMITTED OPTION${NC}"
-																;;
-											esac
-											;;
-							-f | --file)	shift
-											is_file=true
-											case "$1" in
-												-r | --reverse)	shift
-																is_rev=true
-																directory
-																;;
-												"")				directory
-																;;
-												*)				echo "${RED}NON-ADMITTED OPTION${NC}"
-																;;
-											esac
-											;;
-							"")				directory
-											;;
-							*)				echo "${RED}NON-ADMITTED OPTION${NC}"
-											;;
-						esac
-						;;
-	-r | --reverse)		shift
-						is_rev=true
-						case "$1" in
-							-d | --directory)	shift
-											is_dir=true
-											cdirectory=$1
-											shift
-											case "$1" in
-												-f | --file)	shift
-																is_file=true
-																directory
-																;;
-												"")				directory
-																;;
-												*)				echo "${RED}NON-ADMITTED OPTION${NC}"
-																;;
-											esac
-											;;
-							-f | --file)	shift
-											is_file=true
-											case "$1" in
-												-d | --directory)	shift
-																is_dir=true
-																directory
-																;;
-												"")				reverse
-																;;
-												*)				echo "${RED}NON-ADMITTED OPTION${NC}"
-																;;
-											esac
-											;;
-							"")				reverse
-											;;
-							*)				echo "${RED}NON-ADMITTED OPTION${NC}"
-											;;
-						esac
-						;;
-	-f | --files)		shift
-						is_file=true
-						case "$1" in
-							-r | --reverse)	shift
-											is_rev=true
-											case "$1" in
-												-d | --directory)	shift
-																is_dir=true
-																cdirectory=$1
-																directory
-																;;
-												"")				files
-																;;
-												*)				echo "${RED}NON-ADMITTED OPTION${NC}"
-																;;
-											esac
-											;;
-							-d | --directory)	shift
-											is_dir=true
-											cdirectory=$1
-											shift
-											case "$1" in
-												-r | --reverse)	shift
-																is_rev=true
-																directory
-																;;
-												"")				directory
-																;;
-												*)				echo "${RED}NON-ADMITTED OPTION${NC}"
-																;;
-											esac
-											;;
-							"")				files
-											;;
-							*)				echo "${RED}NON-ADMITTED OPTION${NC}"
-											;;
-						esac
-						;;
-	-h | --help)		shift
-						help
-						;;
-	-tos | --Terms)		terms_of_service
-						;;
-	"")					standard
-						;;
-	*)					echo "Type ${CYAN} \"dusage -h\"${NC} in order to get help and see how this program works"
-						;;
+  -d | --directory)	shift
+					cdirectory=$1
+					shift
+					case "$1" in
+					  -r | --reverse)	shift
+										is_rev=true
+										case "$1" in
+										  -f | --file)	shift
+														is_file=true
+														directory
+														;;
+										  "")			directory
+														;;
+										  *)			echo "${RED}NON-ADMITTED OPTION${NC}"
+														;;
+										esac
+										;;
+					  -f | --file)	shift
+									is_file=true
+									case "$1" in
+									  -r | --reverse)	shift
+														is_rev=true
+														directory
+														;;
+									  "")				directory
+														;;
+									  *)				echo "${RED}NON-ADMITTED OPTION${NC}"
+														;;
+									esac
+									;;
+					  "")			directory
+									;;
+					  *)			echo "${RED}NON-ADMITTED OPTION${NC}"
+									;;
+					esac
+					;;
+  -r | --reverse)	shift
+					is_rev=true
+					case "$1" in
+					  -d | --directory)	shift
+										is_dir=true
+										cdirectory=$1
+										shift
+										case "$1" in
+										  -f | --file)	shift
+														is_file=true
+														directory
+														;;
+										  "")			directory
+														;;
+										  *)			echo "${RED}NON-ADMITTED OPTION${NC}"
+														;;
+										esac
+										;;
+					  -f | --file)	shift
+									is_file=true
+									case "$1" in
+									  -d | --directory)	shift
+														is_dir=true
+														cdirectory=$1
+														directory
+														;;
+									  "")				reverse
+														;;
+									  *)				echo "${RED}NON-ADMITTED OPTION${NC}"
+														;;
+									esac
+									;;
+					  "")			reverse
+									;;
+					  *)			echo "${RED}NON-ADMITTED OPTION${NC}"
+									;;
+					esac
+					;;
+  -f | --files)		shift
+					is_file=true
+					case "$1" in
+					  -r | --reverse)	shift
+										is_rev=true
+										case "$1" in
+										  -d | --directory)	shift
+															is_dir=true
+															cdirectory=$1
+															directory
+															;;
+										  "")				files
+															;;
+										  *)				echo "${RED}NON-ADMITTED OPTION${NC}"
+															;;
+										esac
+										;;
+					  -d | --directory)	shift
+										is_dir=true
+										cdirectory=$1
+										shift
+										case "$1" in
+										  -r | --reverse)	shift
+															is_rev=true
+															directory
+															;;
+										  "")				directory
+															;;
+										  *)				echo "${RED}NON-ADMITTED OPTION${NC}"
+															;;
+										esac
+										;;
+					  "")				files
+										;;
+					  *)				echo "${RED}NON-ADMITTED OPTION${NC}"
+										;;
+					esac
+					;;
+  -h | --help)		shift
+					help
+					;;
+  -tos | --Terms)	terms_of_service
+					;;
+  "")				standard
+					;;
+  *)				echo "Type ${CYAN} \"dusage -h\"${NC} in order to get help and see how this program works"
+					;;
 esac
-
-#du -s -h -x * | sort -h - Folders only
-#du -a -h -x * | sort -h - All files - deprecated
-#du -s -h /home/* | sort -hr - Specific folder
-#find . -type f  -exec du -s -h -x {} + | sort -h || for files
