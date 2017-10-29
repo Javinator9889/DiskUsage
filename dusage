@@ -65,13 +65,13 @@ directory(){
         echo "| Size | Directory |"
         echo "+------+-----------+"
         if $is_file && $is_rev; then
-        	find $cdirectory/* -type f  -exec du -s -h -x {} + | sort -hr
+        	find "$cdirectory"* -type f  -exec du -s -h -x {} + | sort -hr
         elif  $is_file; then
-        	find $cdirectory/* -type f  -exec du -s -h -x {} + | sort -h
+        	find "$cdirectory"* -type f  -exec du -s -h -x {} + | sort -h
         elif $is_rev; then
-        	du -s -h $cdirectory/* | sort -hr
+        	du -s -h "$cdirectory"* | sort -hr
         else
-        	du -s -h $cdirectory/* | sort -h
+        	du -s -h "$cdirectory"* | sort -h
         fi
 }
 
